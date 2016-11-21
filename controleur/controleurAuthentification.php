@@ -29,7 +29,7 @@ private $erreur;
 
   function verificationPseudo($pseudo, $password){
     try{
-      $connexion=new PDO('mysql:host=localhost;dbname=mastermind','root','');
+      $connexion=new PDO('mysql:host=localhost;dbname=E154817E','E154817E','E154817E');
     }catch (PDOException $e){
       print($e->getMessage());
     }
