@@ -22,7 +22,7 @@ class Jeu{
         array("","","",""),
         array("","","",""),
         array("","","",""),
-        array("","","vert",""),
+        array("","","",""),
       );
       $this->colorCorrect = array(
         array("blanc","noir","",""),
@@ -111,14 +111,26 @@ class Jeu{
         <div class = "white-ribon">
           <div class="container-center">
             <div class="container-row">
+              <div class ="container-circle-picker">
+                <div class ="circle backward">
+                  <div class ="backward-image">
+                  </div>
+                </div>
+              </div>
               <?php
               for($i = 0; $i<8; $i++){
                 echo "<div class = 'container-circle-picker'>";
-                echo "<div class = 'circle ".$this->colorPicker[$i]."'>\n";
+                echo "<div class = 'circle ".$this->colorPicker[$i]." picker'>\n";
                 echo "</div>";
                 echo "</div>";
               }
               ?>
+              <div class ="container-circle-picker">
+                <div class ="circle check">
+                  <div class ="check-image">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

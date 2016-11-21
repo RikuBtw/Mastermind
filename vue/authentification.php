@@ -33,9 +33,9 @@ function demandePseudo(){
 					<div class = "input-box">
 						<input type="password" id="password" name="password" placeholder="Password">
 					</div>
-					<div class = "input-button">
+          <div class = "input-button">
 						<input type="submit"; style="cursor:pointer";>
-					</div>
+          </div>
 				</form>
 			</div>
 		</div>
