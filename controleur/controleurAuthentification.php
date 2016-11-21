@@ -33,11 +33,12 @@ private $erreur;
     }catch (PDOException $e){
       print($e->getMessage());
     }
-    $requete = "select pseudo, motDePasse from joueurs;";
-    $statement=$connexion->query( $requete);
 
-    $tabResult=$statement->fetchAll();
-    $result = false;
+    $stmt = $connexion->prepare("SELECT pseudo, motDePasse from joueurs where joueurs.pseudo=?");
+    $stmt->bindParam(1, $pseudo);
+    $stmt->execute();
+    $tabResult=$stmt->fetchAll();
+
     foreach ($tabResult as $row){
       if ($pseudo == $row['pseudo'] && crypt($password, $row['motDePasse'])== $row['motDePasse']) {
           return true;
