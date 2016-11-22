@@ -1,6 +1,8 @@
 <?php
 class Authentification{
 
+
+
 function demandePseudo(){
 
   header("Content-type: text/html; charset=utf-8");
@@ -8,6 +10,7 @@ function demandePseudo(){
 	$i = rand(0, count($background)-1);
   $tempBackground = $background[$i];
 	setcookie("background",$background[$i]);
+
   ?>
   <html>
     <head>
@@ -34,7 +37,9 @@ function demandePseudo(){
 						<input type="password" id="password" name="password" placeholder="Password">
 					</div>
           <div class = "input-button">
-						<input type="submit"; style="cursor:pointer";>
+						<input type="submit" style="cursor:pointer" value = "Valider">
+
+
           </div>
 				</form>
 			</div>

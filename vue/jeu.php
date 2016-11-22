@@ -36,7 +36,7 @@ class Jeu{
         array("","","",""),
         array("","","",""),
       );
-      $this->authorizedColumn = 8;
+      $this->authorizedColumn = 0;
   }
 
   function demandeAfficheJeu(){
@@ -58,19 +58,16 @@ class Jeu{
             <div class=title-logo>
             </div>
           </div>
+          <div class="logout-container">
+            <div class="logout"; onclick="window.location='./vue/logout.php'">
+              <div class="logout-logo">
+              </div>
+            </div>
+          </div>
         </div>
         <div class = "container-center">
           <div class="container-board">
-            <div class="container-column solution">
-              <?php
-                for($i = 0; $i<4; $i++){
-                  echo "            <div class = 'container-circle'>\n";
-                  echo "               <div class = 'circle ".(($this->isHidden == true)? "hidden" : $this->colorHidden[$i])."'>\n";
-                  echo "               </div>\n";
-                  echo "              </div>\n";
-                }
-              ?>
-            </div>
+
 
             <?php
               for($i = 0; $i<10; $i++){
@@ -102,6 +99,16 @@ class Jeu{
                   echo "            </div>\n";
               }
             ?>
+            <div class="container-column solution">
+              <?php
+                for($i = 0; $i<4; $i++){
+                  echo "            <div class = 'container-circle'>\n";
+                  echo "               <div class = 'circle ".(($this->isHidden == true)? "hidden" : $this->colorHidden[$i])."'>\n";
+                  echo "               </div>\n";
+                  echo "              </div>\n";
+                }
+              ?>
+            </div>
           </div>
           </div>
         </div>

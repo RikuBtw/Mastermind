@@ -129,7 +129,6 @@ body{
   justify-content: center;
   align-items: center;
   z-index: 1;
-  background-color: #fff;
   margin: 2px;
 }
 
@@ -143,20 +142,20 @@ body{
   justify-content: center;
   align-items: center;
   z-index: 1;
-  border-right: solid 2px #bbb;
-  padding-right: 3px;
+  border-left: solid 2px #bbb;
+  padding-left: 3px;
   margin: 2px;
 }
 
 .solution{
   border-right: none;
-  padding-right: 0px;
+  padding-left: 0px;
   margin: 15px;
-  border-right: dotted 2px #bbb;
+  border-left: dotted 2px #bbb;
 }
 
 .selection{
-  border-right: solid 2px #000;
+  border-left: solid 2px #000;
 }
 
 
@@ -407,7 +406,7 @@ body{
   width: 100vw;
   height: 25vh;
   bottom: 0;
-  z-index: 999;
+  z-index: 998;
   transition: 0.5s ease;
 }
 
@@ -465,11 +464,12 @@ body{
   -ms-flex-direction: row;
   flex-direction: row;
   position: initial;
-  width: 10vh;
-  height: 10vh;
+  width: 12vh;
+  height: 12vh;
   background: url(../img/arrow.png);
   background-size: 100% 100%;
   transition: 0.3s ;
+  z-index:999;
 }
 .footer:hover .logo-jeu{
   transform: rotate(360deg);
@@ -481,6 +481,58 @@ body{
 
 }
 
+.logout-container {
+
+  position: absolute;
+  width: 10vh;
+  height: 10vh;
+  background-color: #fff;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout{
+
+  position: initial ;
+  width: 7vh;
+  height: 7vh;
+  background-color: #eee;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000em;
+  border-bottom: solid 4px #bdc3c7;
+  transition: 0.1s;
+}
+.logout:active{
+  transform: translateY(4px);
+  border-bottom: solid 1px #bdc3c7;
+}
+
+.logout-logo {
+
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  position: initial;
+  width: 5vh;
+  height: 5vh;
+  background: url(../img/logout.png);
+  background-size: 100% 100%;
+  transition: 0.3s ;
+}
 
 input[type=text] {
 	outline-width: 0;
@@ -514,7 +566,7 @@ input[type=password]:focus{
   border-bottom: 2px solid #111;
 }
 
-input[type=submit] {
+.input-button input[type=submit] {
 	outline-width: 0;
   width: 100%;
   padding: 12px 20px;
@@ -528,19 +580,9 @@ input[type=submit] {
 	color:#fff;
 }
 
-input[type=submit]:hover{
+.input-button input[type=submit]:hover{
 	border: 2px solid #2c3e50;
 	background: #2c3e50;
 }
 
-input[type="button"]
-{
-    width:120px;
-    height:60px;
-    margin-left:35px;
-    display:block;
-    background-color:gray;
-    color:white;
-    border: none;
-    outline:none;
 }
