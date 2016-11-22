@@ -1,35 +1,22 @@
 <?php
-require_once __DIR__."/../vue/authentification.php";
-require_once __DIR__."/../vue/erreur.php";
-require_once __DIR__."/../vue/jeu.php";
+require_once __DIR__."/../vue/vueAuthentification.php";
 
 class ControleurAuthentification{
 
-private $authentification;
-private $erreur;
+private $vueAuthentification;
 
   function __construct(){
-    $this->authentification = new Authentification();
-    $this->erreur = new Erreur();
-    $this->jeu = new Jeu();
+    $this->vueAuthentification = new VueAuthentification();
 
   }
 
-  function accueil(){
-    $this->authentification->demandePseudo();
-  }
-
-  function afficheJeu(){
-    $this->jeu->demandeAfficheJeu();
-  }
-
-  function afficheErreur(){
-    $this->erreur->afficheErreurAuthentification();
+  function demandeAfficheAuthentification(){
+    $this->vueAuthentification->afficheAuthentification();
   }
 
   function verificationPseudo($pseudo, $password){
     try{
-      $connexion=new PDO('mysql:host=localhost;dbname=E154817E','E154817E','E154817E');
+      $connexion=new PDO('mysql:host=localhost;dbname=E154817E','root','');
     }catch (PDOException $e){
       print($e->getMessage());
     }

@@ -1,0 +1,158 @@
+*{
+  margin:0;
+  text-decoration: none;
+}
+
+body{
+  font-family: 'Arial', serif;
+  font-size: 12px;
+}
+
+.container-center{
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+	position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.container-stats{
+  display: box;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 3px;
+  height: 500px;
+  width: 400px;
+  background: rgba(255,255,255,0.85);
+}
+
+.container-rank{
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: none;
+	padding:30px;
+  height: 45%;
+  width: auto;
+
+}
+
+.container-partie{
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: none;
+	padding:30px;
+  height: 55%;
+  width: auto;
+}
+
+.header{
+  position: absolute;
+  width: 100vw;
+  height: 10vh;
+  top: 0;
+  z-index: 999;
+  background: #fff;
+}
+
+.title{
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+
+}
+.title-logo{
+
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 60vh;
+  height: 15vh;
+  background: url(../img/titre.png);
+  background-size: 100% 100%;
+}
+
+.logout-container {
+
+  position: absolute;
+  width: 10vh;
+  height: 10vh;
+  background-color: #fff;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout{
+  position: initial ;
+  width: 7vh;
+  height: 7vh;
+  background-color: #eee;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000em;
+  border-bottom: solid 4px #bdc3c7;
+  transition: 0.1s;
+}
+
+.logout:active{
+  transform: translateY(4px);
+  border-bottom: solid 1px #bdc3c7;
+}
+
+.logout-logo {
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  position: initial;
+  width: 5vh;
+  height: 5vh;
+  background: url(../img/logout.png);
+  background-size: 100% 100%;
+  transition: 0.3s ;
+}
