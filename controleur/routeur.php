@@ -2,7 +2,7 @@
 require_once 'controleurAuthentification.php';
 require_once 'controleurJeu.php';
 require_once 'controleurErreur.php';
-require_once 'ControleurClassement.php';
+require_once 'controleurClassement.php';
 
 class Routeur {
 
