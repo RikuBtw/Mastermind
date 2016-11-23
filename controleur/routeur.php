@@ -38,7 +38,6 @@ class Routeur {
         if(empty($_SESSION['username'])){
           $this->ctrlAuthentification->demandeAfficheAuthentification();
         }else{
-          //$this->ctrlJeu->initialize();
           $this->ctrlJeu->demandeAfficheJeu();
         }
       }else{

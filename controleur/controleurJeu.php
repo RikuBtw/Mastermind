@@ -13,20 +13,13 @@ class ControleurJeu{
 			$this->modeleJeu = $_SESSION['modele'];
 		}else{
 			$_SESSION['modele']=new ModeleJeu();
+			$this->modeleJeu->initialisation();
 			$this->modeleJeu = $_SESSION['modele'];
 		}
 		$this->vueJeu=new VueJeu($this->modeleJeu);
 
 
 	}
-
-	/**
-	 * Methode permettant de débuter le jeu, ce qui signifie initialiser la combinaison recherchée
-	 */
-
-   function initialize(){
-  		$this->modeleJeu->initialisation();
-  }
 
 	function demandeAfficheJeu(){
 		$this->vueJeu->afficheJeu();
