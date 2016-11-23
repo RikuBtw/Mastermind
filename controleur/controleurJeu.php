@@ -9,9 +9,13 @@ class ControleurJeu{
 	private $modeleJeu;
 
 	function __construct(){
-		$this->modeleJeu=new ModeleJeu();
-		$_SESSION['modele']=$this->modeleJeu;
-		$this->vueJeu=new VueJeu($_SESSION['modele']);
+		if(isset($_SESSION['modele'])){
+			$this->modeleJeu = $_SESSION['modele'];
+		}else{
+			$_SESSION['modele']=new ModeleJeu();
+			$this->modeleJeu = $_SESSION['modele'];
+		}
+		$this->vueJeu=new VueJeu($this->modeleJeu);
 
 
 	}
@@ -21,7 +25,7 @@ class ControleurJeu{
 	 */
 
    function initialize(){
-  		$_SESSION['modele']->initialisation();
+  		$this->modeleJeu->initialisation();
   }
 
 	function demandeAfficheJeu(){
@@ -29,23 +33,23 @@ class ControleurJeu{
 	}
 
 	function demandeAjoutPion($couleur) {
-		$_SESSION['modele']->ajouterPion($couleur);
+		$this->modeleJeu->ajouterPion($couleur);
   }
 
 	function demandeSupprimmerPion(){
-		$_SESSION['modele']->supprimerPion();
+		$this->modeleJeu->supprimerPion();
 	}
 
 	function demandeVerification(){
-		if ($_SESSION['modele']->estPleine()){
-			$_SESSION['modele']->verification();
-			if ($_SESSION['modele']->gagne()){
+		if ($this->modeleJeu->estPleine()){
+			$this->modeleJeu->verification();
+			if ($this->modeleJeu->gagne()){
 				$this->vueJeu->afficherGagner();
 			}
-			if ($_SESSION['modele']->authorizedColumn == 9){
+			if ($this->modeleJeu->authorizedColumn == 9){
 				$this->vueJeu->afficherPerdu();
 			}
-			$_SESSION['modele']->$authorizedColumn++;
+			$this->modeleJeu->$authorizedColumn++;
 		}
 	}
 }
