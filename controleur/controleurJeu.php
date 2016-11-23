@@ -13,8 +13,8 @@ class ControleurJeu{
 			$this->modeleJeu = $_SESSION['modele'];
 		}else{
 			$_SESSION['modele']=new ModeleJeu();
-			$this->modeleJeu->initialisation();
 			$this->modeleJeu = $_SESSION['modele'];
+			$this->modeleJeu->initialisation();
 		}
 		$this->vueJeu=new VueJeu($this->modeleJeu);
 
