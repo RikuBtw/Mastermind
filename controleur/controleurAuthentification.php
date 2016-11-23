@@ -28,8 +28,9 @@ private $vueAuthentification;
 
     foreach ($tabResult as $row){
       if ($pseudo == $row['pseudo'] && crypt($password, $row['motDePasse'])== $row['motDePasse']) {
-          session_start();
           $_SESSION['username'] = $pseudo;
+          $_SESSION['authorizedColumn'] = 0;
+          $_SESSION['curseur'] = 0;
           return true;
       }
     }

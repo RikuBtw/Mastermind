@@ -450,5 +450,56 @@ body{
   -o-transform:rotate(360deg);
   background: url(../img/arrow2.png);
   background-size: 100% 100%;
+}
 
+input[type=submit] {
+  border-radius: 1000em;
+  height: 5vh;
+  width: 5vh;
+  margin: 5px;
+  background-color: #7f8c8d;
+  --color:#555;
+  box-shadow: none;
+  border:none;
+  border-bottom: solid 4px var(--color);
+  transition: 0.1s;
+  -webkit-transition: 0.1s;
+}
+input[type=submit]#rouge{
+  background-color:#e74c3c;
+  --color:#b0281a;
+}
+input[type=submit]#jaune{
+  background-color: #f1c40f;
+  --color:#f39c12;
+}
+input[type=submit]#vert{
+  background-color: #2ecc71;
+  --color:#27ae60;
+}
+input[type=submit]#bleu{
+  background-color: #3498db;
+  --color:#1870a8;
+}
+input[type=submit]#orange{
+  background-color: #e67e22;
+  --color:#d35400;
+}
+input[type=submit]#blanc{
+  background-color: #ecf0f1;
+  --color:#bdc3c7;
+}
+input[type=submit]#violet{
+  background-color: #9b59b6;
+  --color:#7d33bc;
+}
+input[type=submit]#fushia{
+  background-color: #ff66ff;
+  --color:#983c98;
+}
+
+
+input[type=submit]:active{
+  transform: translateY(4px);
+  border-bottom: solid 1px var(--color);
 }
