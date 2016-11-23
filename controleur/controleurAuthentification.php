@@ -16,7 +16,7 @@ private $vueAuthentification;
 
   function verificationPseudo($pseudo, $password){
     try{
-      $connexion=new PDO('mysql:host=localhost;dbname=E154817E','E154817E','E154817E');
+      $connexion=new PDO('mysql:host=localhost;dbname=E154817E','root','');
     }catch (PDOException $e){
       print($e->getMessage());
     }

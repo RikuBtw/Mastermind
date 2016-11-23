@@ -34,7 +34,7 @@ class Routeur {
         $this->ctrlJeu->demandeAfficheJeu();
       }else
 
-      if($this->ctrlAuthentification->verificationPseudo($_POST['pseudo'], $_POST['password'])){
+      if($this->ctrlAuthentification->verificationPseudo($_POST['pseudo'], $_POST['password']) || isset($_SESSION['username'])){
         if(empty($_SESSION['username'])){
           $this->ctrlAuthentification->demandeAfficheAuthentification();
         }else{
