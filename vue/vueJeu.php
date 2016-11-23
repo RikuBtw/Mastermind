@@ -1,4 +1,5 @@
 <?php
+
 class VueJeu{
 
   private $isHidden;
@@ -8,35 +9,14 @@ class VueJeu{
   private $colorPicker;
   private $authorizedColumn;
 
-  function __construct(){
-      $this->isHidden = true;
-      $this->colorPicker = ["bleu", "rouge", "jaune", "vert", "blanc", "orange", "violet", "fushia"];
-      $this->colorHidden = ["bleu", "rouge", "vert", "blanc"];
-      $this->colorShowed = array(
-        array("bleu","rouge","rouge","jaune"),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-      );
-      $this->colorCorrect = array(
-        array("blanc","noir","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-        array("","","",""),
-      );
-      $this->authorizedColumn = 0;
+
+  function __construct($modeleJeu){
+      $this->isHidden = $modeleJeu->getIsHidden();
+      $this->colorHidden = $modeleJeu->getColorHidden();
+      $this->colorShowed = $modeleJeu->getColorShowed();
+      $this->colorCorrect = $modeleJeu->getColorCorrect();
+      $this->colorPicker = $modeleJeu->getColorPicker();
+      $this->authorizedColumn = $modeleJeu->getAuthorizedColumn();
   }
 
   function afficheJeu(){
@@ -119,16 +99,17 @@ class VueJeu{
           <div class="container-center">
             <div class="container-row">
               <div class ="container-circle-picker">
-                <div class ="circle backward">
-                  <div class ="backward-image">
-                  </div>
-                </div>
+                <form action='index.php' method='POST'>
+                  <input type='submit' class="backward-image" name='circle' value='' id='backward'>
+                </form>
               </div>
+
               <?php
               for($i = 0; $i<8; $i++){
                 echo "<div class = 'container-circle-picker'>";
-                echo "<div class = 'circle ".$this->colorPicker[$i]." picker'>\n";
-                echo "</div>";
+                echo "<form action='index.php' method='POST'>";
+                echo "<input type='submit' name='circle' value='' id='".$this->colorPicker[$i]."'>\n";
+                echo "</form>";
                 echo "</div>";
               }
               ?>

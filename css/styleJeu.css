@@ -148,32 +148,7 @@ body{
   background-color: #abb7b7;
   box-shadow: 0px 3px 0px #696f6f;
 }
-.picker{
-  box-shadow: none;
-  border-bottom: solid 4px var(--color);
-}
 
-.picker:active{
-  transform: translateY(4px);
-  border-bottom: solid 1px var(--color);
-}
-
-.backward{
-  margin: 4px;
-  height: 7vh;
-  width: 7vh;
-  box-shadow: none;
-  border-bottom: solid 4px var(--color);
-  display: box;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  transition: 0.1s;
-	-webkit-transition: 0.1s;
-}
 
 .backward:active{
   transform: translateY(4px);
@@ -498,6 +473,47 @@ input[type=submit]#fushia{
   --color:#983c98;
 }
 
+input[type=submit]#check{
+  margin: 4px;
+  height: 7vh;
+  width: 7vh;
+  box-shadow: none;
+  border-bottom: solid 4px var(--color);
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s;
+	-webkit-transition: 0.1s;
+}
+input[type=submit]#check:active{
+  transform: translateY(4px);
+  border-bottom: solid 1px var(--color);
+}
+
+input[type=submit]#backward{
+  margin: 4px;
+  height: 7vh;
+  width: 7vh;
+  box-shadow: none;
+  border-bottom: solid 4px var(--color);
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s;
+	-webkit-transition: 0.1s;
+}
+input[type=submit]#backward:active{
+  transform: translateY(4px);
+  border-bottom: solid 1px var(--color);
+}
 
 input[type=submit]:active{
   transform: translateY(4px);
