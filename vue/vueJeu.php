@@ -107,7 +107,7 @@ class VueJeu{
               <?php
               for($i = 0; $i<8; $i++){
                 echo "<div class = 'container-circle-picker'>";
-                echo "<form action='index.php' method='POST'>";
+                echo "<form action='index.php' method='GET'>";
                 echo "<input type='submit' name='circle' value='".$this->colorPicker[$i]."' id='".$this->colorPicker[$i]."'>\n";
                 echo "</form>";
                 echo "</div>";

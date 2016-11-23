@@ -23,18 +23,14 @@ class Routeur {
 	public function routerRequete() {
 
 
+    if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_SESSION['username'])){
+      if(isset($_GET['circle'])){
+        $this->ctrlJeu->demandeAjoutPion($_GET['circle']);
+        $this->ctrlJeu->demandeAfficheJeu();
+      }
+    }else
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-      if(isset($_POST["backward"])){
-        $this->ctrlJeu->demandeSupprimmerPion();
-        $this->ctrlJeu->demandeAfficheJeu();
-      }else
-
-      if(isset($_POST["circle"])){
-        $this->ctrlJeu->demandeAjoutPion($_POST["circle"]);
-        $this->ctrlJeu->demandeAfficheJeu();
-      }else
-
-      if($this->ctrlAuthentification->verificationPseudo($_POST['pseudo'], $_POST['password']) || isset($_SESSION['username'])){
+      if($this->ctrlAuthentification->verificationPseudo($_POST['pseudo'], $_POST['password'])){
         if(empty($_SESSION['username'])){
           $this->ctrlAuthentification->demandeAfficheAuthentification();
         }else{
