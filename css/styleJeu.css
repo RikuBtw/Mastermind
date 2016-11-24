@@ -24,6 +24,30 @@ body{
   z-index: 1;
 }
 
+@keyframes example {
+    from {top: -100vw;}
+    to {top: 0;}
+}
+
+.container-message{
+
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+	position: absolute;
+  right: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  background: #000;
+  animation-name: example;
+  animation-duration: 2s;
+
+}
+
 .container-board{
 
   display: box;
@@ -168,22 +192,6 @@ body{
   background-size: 100% 100%;
 }
 
-.check{
-  margin: 4px;
-  height: 7vh;
-  width: 7vh;
-  box-shadow: none;
-  border-bottom: solid 4px var(--color);
-  display: box;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  transition: 0.1s;
-	-webkit-transition: 0.1s;
-}
 
 .check:active{
   transform: translateY(4px);
@@ -197,8 +205,8 @@ body{
   -ms-flex-direction: row;
   flex-direction: row;
   position: initial;
-  width: 4vh;
-  height: 4vh;
+  width: 6vh;
+  height: 6vh;
   background : url("../img/check.png");
   background-size: 100% 100%;
 }
@@ -262,7 +270,7 @@ body{
   width: 100vw;
   height: 10vh;
   top: 0;
-  z-index: 999;
+  z-index: 900;
   background: #fff;
 }
 
@@ -352,7 +360,7 @@ body{
   width: 100vw;
   height: 25vh;
   bottom: 0;
-  z-index: 998;
+  z-index: 900;
   transition: 0.5s ease;
 }
 
@@ -415,7 +423,7 @@ body{
   background: url(../img/arrow.png);
   background-size: 100% 100%;
   transition: 0.3s ;
-  z-index:999;
+  z-index:900;
 }
 
 .footer:hover .logo-jeu{

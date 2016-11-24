@@ -1,11 +1,13 @@
 <?php
 
 require_once __DIR__."/../vue/vueJeu.php";
+require_once __DIR__."/../vue/vuePartieTerminee.php";
 require_once __DIR__."/../modele/modeleJeu.php";
 
 class ControleurJeu{
 
 	private $vueJeu;
+	private $vuePartieTerminee;
 	private $modeleJeu;
 
 	function __construct(){
@@ -17,32 +19,33 @@ class ControleurJeu{
 			$this->modeleJeu->initialisation();
 		}
 		$this->vueJeu=new VueJeu($this->modeleJeu);
+		$this->vuePartieTerminee = new vuePartieTerminee($this->modeleJeu);
 
 
 	}
 
 	function demandeAfficheJeu(){
-		$this->vueJeu->afficheJeu();
+		 (new VueJeu($this->modeleJeu))->affichejeu();
 	}
 
 	function demandeAjoutPion($couleur) {
 		$this->modeleJeu->ajouterPion($couleur);
   }
 
-	function demandeSupprimmerPion(){
+	function demandeSupprimerPion(){
 		$this->modeleJeu->supprimerPion();
 	}
 
 	function demandeVerification(){
-		if ($this->modeleJeu->estPleine()){
-			$this->modeleJeu->verification();
-			if ($this->modeleJeu->gagne()){
-				$this->vueJeu->afficherGagner();
+		if ($this->modeleJeu->estPlein()){
+			if ($this->modeleJeu->getAuthorizedColumn() == 10){
+				//$this->vuePartieTerminee->afficherGagner();
+			}else{
+				$this->modeleJeu->verification();
+				if ($this->modeleJeu->gagne()){
+					//$this->vuePartieTerminee->afficherGagner();
+				}
 			}
-			if ($this->modeleJeu->authorizedColumn == 9){
-				$this->vueJeu->afficherPerdu();
-			}
-			$this->modeleJeu->$authorizedColumn++;
 		}
 	}
 }

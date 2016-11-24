@@ -1,6 +1,6 @@
 <?php
 
-class VueJeu{
+class vuePartieTerminee{
 
   private $isHidden;
   private $colorHidden;
@@ -19,7 +19,7 @@ class VueJeu{
       $this->authorizedColumn = $modeleJeu->getAuthorizedColumn();
   }
 
-  function afficheJeu(){
+  function afficherGagner(){
     header("Content-type: text/html; charset=utf-8");
     ?>
     <html>
@@ -33,6 +33,8 @@ class VueJeu{
         <title>Mastermind</title>
       </head>
       <body>
+        <div class = "container-message">
+        </div>
         <div class="header">
           <div class="title">
             <div class=title-logo>

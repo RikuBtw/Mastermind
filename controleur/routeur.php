@@ -22,10 +22,17 @@ class Routeur {
   // Traite une requête entrante
 	public function routerRequete() {
 
-
     if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_SESSION['username'])){
-      if(isset($_GET['circle'])){
+      if(!empty($_GET['circle'])){
         $this->ctrlJeu->demandeAjoutPion($_GET['circle']);
+        $this->ctrlJeu->demandeAfficheJeu();
+      }else
+      if(!empty($_GET['backward'])){
+        $this->ctrlJeu->demandeSupprimerPion();
+        $this->ctrlJeu->demandeAfficheJeu();
+      }else
+      if(!empty($_GET['check'])){
+        $this->ctrlJeu->demandeVerification();
         $this->ctrlJeu->demandeAfficheJeu();
       }
     }else
