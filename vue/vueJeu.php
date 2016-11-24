@@ -33,7 +33,7 @@ class VueJeu{
         <title>Mastermind</title>
       </head>
       <body>
-        <div class="container-message">
+        <!--<div class="container-message">
           <div class="menu-fin-partie">
             <div class ="container-circle-picker">
               <form action='index.php' method='GET'>
@@ -42,6 +42,7 @@ class VueJeu{
             </div>
           </div>
         </div>
+      -->
         <div class="header">
           <div class="title">
             <div class=title-logo>
