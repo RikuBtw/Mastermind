@@ -33,6 +33,15 @@ class VueJeu{
         <title>Mastermind</title>
       </head>
       <body>
+        <div class="container-message">
+          <div class="menu-fin-partie">
+            <div class ="container-circle-picker">
+              <form action='index.php' method='GET'>
+                <input type='submit' class="logout-logo" name='backward' value='backward' id='logout'>
+              </form>
+            </div>
+          </div>
+        </div>
         <div class="header">
           <div class="title">
             <div class=title-logo>

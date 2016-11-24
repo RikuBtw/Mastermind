@@ -169,19 +169,17 @@ public function verification(){
   }
 }
 
-public function gagne(){
+public function finPartie(){
   for ($i = 0; $i < 4; $i++) {
     if ($this->colorCorrect[$this->authorizedColumn-1][$i] != "noir"){
       return false;
     }
   }
-  $this->isHidden=false;
   return true;
 }
-public function perdu(){
+
+public function decouvrir(){
   $this->isHidden=false;
 }
-
 }
-
 ?>

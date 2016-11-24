@@ -1,13 +1,13 @@
 <?php
 
 require_once __DIR__."/../vue/vueJeu.php";
-require_once __DIR__."/../vue/vuePartieTerminee.php";
+require_once __DIR__."/../vue/vueClassement.php";
 require_once __DIR__."/../modele/modeleJeu.php";
 
 class ControleurJeu{
 
 	private $vueJeu;
-	private $vuePartieTerminee;
+	private $vueClassement;
 	private $modeleJeu;
 
 	function __construct(){
@@ -19,7 +19,7 @@ class ControleurJeu{
 			$this->modeleJeu->initialisation();
 		}
 		$this->vueJeu=new VueJeu($this->modeleJeu);
-		$this->vuePartieTerminee = new vuePartieTerminee($this->modeleJeu);
+		$this->vueClassement = new vueClassement($this->modeleJeu);
 
 
 	}
@@ -38,15 +38,26 @@ class ControleurJeu{
 
 	function demandeVerification(){
 		if ($this->modeleJeu->estPlein()){
+			$this->modeleJeu->verification();
+			if($this->modeleJeu->finPartie()){
+				return "gagne";
+			}else
 			if ($this->modeleJeu->getAuthorizedColumn() == 10){
-				//$this->vuePartieTerminee->afficherGagner();
-			}else{
-				$this->modeleJeu->verification();
-				if ($this->modeleJeu->gagne()){
-					//$this->vuePartieTerminee->afficherGagner();
-				}
+					if($this->modeleJeu->finPartie()){
+						return "gagne";
+					}
+					return "perd";
 			}
 		}
+		return "";
+	}
+
+
+	function demandeGagne(){
+		$this->modeleJeu->gagne();
+	}
+	function demandePerdu(){
+		$this->modeleJeu->perdu();
 	}
 }
 ?>

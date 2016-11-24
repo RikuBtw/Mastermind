@@ -1,40 +1,27 @@
 <?php
 require_once __DIR__."/../vue/vueAuthentification.php";
+require_once __DIR__."/../modele/modeleAuthentification.php";
 
 class ControleurAuthentification{
-
+private $modeleAuthentification;
 private $vueAuthentification;
 
   function __construct(){
     $this->vueAuthentification = new VueAuthentification();
-
+    $this->modeleAuthentification = new ModeleAuthentification();
   }
 
   function demandeAfficheAuthentification(){
     $this->vueAuthentification->afficheAuthentification();
   }
 
-  function verificationPseudo($pseudo, $password){
-    try{
-      $connexion=new PDO('mysql:host=localhost;dbname=E154817E','E154817E','E154817E');
-    }catch (PDOException $e){
-      print($e->getMessage());
+  function demandeVerificationPseudo($pseudo, $password){
+    if($this->modeleAuthentification->verificationPseudo($pseudo, $password)){
+      $_SESSION['user_token'] = $pseudo;
+      return true;
+    }else{
+      return false;
     }
-
-    $stmt = $connexion->prepare("SELECT pseudo, motDePasse from joueurs where joueurs.pseudo=?");
-    $stmt->bindParam(1, $pseudo);
-    $stmt->execute();
-    $tabResult=$stmt->fetchAll();
-
-    foreach ($tabResult as $row){
-      if ($pseudo == $row['pseudo'] && crypt($password, $row['motDePasse'])== $row['motDePasse']) {
-          $_SESSION['username'] = $pseudo;
-          $_SESSION['authorizedColumn'] = 0;
-          $_SESSION['curseur'] = 0;
-          return true;
-      }
-    }
-    return false;
   }
 }
 

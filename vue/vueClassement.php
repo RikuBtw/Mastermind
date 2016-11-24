@@ -3,8 +3,8 @@ class VueClassement{
 
   private $classementListe;
 
-  function __construct(){
-    $this->classementListe = ["1","2","3","4","5"];
+  function __construct($classementListe){
+    $this->classementListe = $classementListe;
   }
 
   function afficheClassement(){
@@ -41,7 +41,11 @@ class VueClassement{
                 <ul style="list-style-type:none">
                   <?php
                   for($i = 0; $i <5; $i++){
-                    echo "<li>".$this->classementListe[$i]."</li>";
+                    echo "<p>".$i.": ";
+                    for($j = 0; $j <3; $j++){
+                      echo $this->classementListe[$i][$j]." ";
+                    }
+                    echo "</p>";
                   }
                   ?>
                 </ul>

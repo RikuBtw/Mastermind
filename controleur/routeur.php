@@ -22,23 +22,28 @@ class Routeur {
   // Traite une requête entrante
 	public function routerRequete() {
 
-    if($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_SESSION['username'])){
-      if(!empty($_GET['circle'])){
-        $this->ctrlJeu->demandeAjoutPion($_GET['circle']);
-        $this->ctrlJeu->demandeAfficheJeu();
+
+    if(!empty($_GET['circle'])&& isset($_SESSION['user_token'])){
+      $this->ctrlJeu->demandeAjoutPion($_GET['circle']);
+      $this->ctrlJeu->demandeAfficheJeu();
+    }else
+    if(!empty($_GET['backward'])&& isset($_SESSION['user_token'])){
+      $this->ctrlJeu->demandeSupprimerPion();
+      $this->ctrlJeu->demandeAfficheJeu();
+    }else
+    if(!empty($_GET['check'])&& isset($_SESSION['user_token'])){
+      if($this->ctrlJeu->demandeVerification() == "gagne"){
+        $this->ctrlClassement->demandeAfficheClassement();
       }else
-      if(!empty($_GET['backward'])){
-        $this->ctrlJeu->demandeSupprimerPion();
-        $this->ctrlJeu->demandeAfficheJeu();
-      }else
-      if(!empty($_GET['check'])){
-        $this->ctrlJeu->demandeVerification();
+      if($this->ctrlJeu->demandeVerification() == "perd"){
+        $this->ctrlClassement->demandeAfficheClassement();
+      }else{
         $this->ctrlJeu->demandeAfficheJeu();
       }
     }else
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-      if($this->ctrlAuthentification->verificationPseudo($_POST['pseudo'], $_POST['password'])){
-        if(empty($_SESSION['username'])){
+      if($this->ctrlAuthentification->demandeVerificationPseudo($_POST['pseudo'], $_POST['password'])){
+        if(empty($_SESSION['user_token'])){
           $this->ctrlAuthentification->demandeAfficheAuthentification();
         }else{
           $this->ctrlJeu->demandeAfficheJeu();
@@ -49,7 +54,6 @@ class Routeur {
     }else{
       $this->ctrlAuthentification->demandeAfficheAuthentification();
     }
-
   }
 
 
