@@ -24,6 +24,11 @@ class VueClassement{
 
           <div class="header">
             <div class="title">
+              <div class="replay-container">
+                <form action='index.php' method='GET'>
+                  <input type='submit' class="replay-image" name='replay' value='replay' id='replayHeader'>
+                </form>
+              </div>
               <div class=title-logo>
               </div>
             </div>
@@ -38,18 +43,44 @@ class VueClassement{
           <div class = "container-center">
             <div class = "container-stats">
               <div class = "container-rank">
-                <ul style="list-style-type:none">
+                <div class = 'container-text'>
+                  <div class= 'container-text-title'>
+                    Joueur
+                  </div>
+                  <br>
                   <?php
-                  for($i = 0; $i <5; $i++){
-                    echo "<p>".$i.": ";
-                    for($j = 0; $j <3; $j++){
-                      echo $this->classementListe[$i][$j]." ";
+                    for($i = 0; $i <5; $i++){
+                      echo $this->classementListe[$i][0];
+                      echo "<br>";
                     }
-                    echo "</p>";
-                  }
                   ?>
-                </ul>
+                </div>
+                <div class = 'container-text'>
+                  <div class= 'container-text-title'>
+                    Nb Coups
+                  </div>
+                  <br>
+                  <?php
+                    for($i = 0; $i <5; $i++){
+                      echo $this->classementListe[$i][1];
+                      echo "<br>";
+                    }
+                  ?>
+                </div>
+                <div class = 'container-text'>
+                  <div class= 'container-text-title'>
+                    % Victoire
+                  </div>
+                  <br>
+                  <?php
+                    for($i = 0; $i <5; $i++){
+                      echo $this->classementListe[$i][2];
+                      echo "<br>";
+                    }
+                  ?>
+                </div>
               </div>
+
               <div class = "container-partie">
                 blabla
               </div>

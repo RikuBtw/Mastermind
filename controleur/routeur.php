@@ -25,28 +25,37 @@ class Routeur {
 
     if(!empty($_GET['circle'])&& isset($_SESSION['user_token'])){
       $this->ctrlJeu->demandeAjoutPion($_GET['circle']);
-      $this->ctrlJeu->demandeAfficheJeu();
+      $this->ctrlJeu->demandeAfficheJeu(0);
     }else
     if(!empty($_GET['backward'])&& isset($_SESSION['user_token'])){
       $this->ctrlJeu->demandeSupprimerPion();
-      $this->ctrlJeu->demandeAfficheJeu();
+      $this->ctrlJeu->demandeAfficheJeu(0);
     }else
     if(!empty($_GET['check'])&& isset($_SESSION['user_token'])){
-      if($this->ctrlJeu->demandeVerification() == "gagne"){
-        $this->ctrlClassement->demandeAfficheClassement();
+
+      $tempVerification = $this->ctrlJeu->demandeVerification();
+      if($tempVerification == "gagne"){
+        $this->ctrlJeu->demandeAfficheJeu($tempVerification);
       }else
-      if($this->ctrlJeu->demandeVerification() == "perd"){
-        $this->ctrlClassement->demandeAfficheClassement();
+      if($tempVerification == "perdu"){
+        $this->ctrlJeu->demandeAfficheJeu($tempVerification);
       }else{
-        $this->ctrlJeu->demandeAfficheJeu();
+        $this->ctrlJeu->demandeAfficheJeu(0);
       }
+    }else
+      if(!empty($_GET['next'])&& isset($_SESSION['user_token'])){
+        $this->ctrlClassement->demandeAfficheClassement();
+    }else
+      if(!empty($_GET['replay'])&& isset($_SESSION['user_token'])){
+        $this->ctrlJeu->replay();
+        $this->ctrlJeu->demandeAfficheJeu(0);
     }else
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
       if($this->ctrlAuthentification->demandeVerificationPseudo($_POST['pseudo'], $_POST['password'])){
         if(empty($_SESSION['user_token'])){
           $this->ctrlAuthentification->demandeAfficheAuthentification();
         }else{
-          $this->ctrlJeu->demandeAfficheJeu();
+          $this->ctrlJeu->demandeAfficheJeu(0);
         }
       }else{
         $this->ctrlErreur->demandeAfficheErreur();

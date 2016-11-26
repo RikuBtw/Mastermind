@@ -1,25 +1,20 @@
 <?php
 require_once __DIR__."/../vue/vueClassement.php";
-require_once __DIR__."/../modele/modeleClassement.php";
+require_once __DIR__."/../modele/modeleBD.php";
 
 class ControleurClassement{
 
 private $vueClassement;
-private $modeleClassement;
+private $modeleBD;
 
   function __construct(){
-    if(isset($_SESSION['modeleClassement'])){
-			$this->modeleClassement = $_SESSION['modeleClassement'];
-		}else{
-			$_SESSION['modeleClassement']=new modeleClassement();
-			$this->modeleClassement = $_SESSION['modeleClassement'];
-		}
-    //$this->ModeleClassement->recuperation5Premiers();
-    $this->vueClassement = new VueClassement($this->modeleClassement->getListeClassement());
+		$this->modeleBD = new modeleBD();
+    $this->modeleBD->recuperation5Premiers();
+    $this->vueClassement = new VueClassement($this->modeleBD->getListeClassement());
   }
 
   function demandeAfficheClassement(){
-    $this->vueClassement->afficheClassement($this->modeleClassement->getListeClassement());
+    $this->vueClassement->afficheClassement();
   }
 }
 ?>

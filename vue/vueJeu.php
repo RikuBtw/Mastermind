@@ -19,7 +19,7 @@ class VueJeu{
       $this->authorizedColumn = $modeleJeu->getAuthorizedColumn();
   }
 
-  function afficheJeu(){
+  function afficheJeu($result){
     header("Content-type: text/html; charset=utf-8");
     ?>
     <html>
@@ -33,17 +33,67 @@ class VueJeu{
         <title>Mastermind</title>
       </head>
       <body>
-        <!--<div class="container-message">
-          <div class="menu-fin-partie">
-            <div class ="container-circle-picker">
-              <form action='index.php' method='GET'>
-                <input type='submit' class="logout-logo" name='backward' value='backward' id='logout'>
-              </form>
+
+        <?php
+        if($result === "perdu"){
+          ?>
+        <div class='container-message-screen'>
+          <div class='container-message'>
+            <div class='menu-fin-partie'>
+              <div class ='end-screen-defeat'>
+              </div>
+              <div class ='container-circle-picker'>
+                <form action='index.php' method='GET'>
+                  <input type='submit' class='exit-image' name='logout' value='logout' id='logout'>
+                </form>
+                <form action='index.php' method='GET'>
+                  <input type='submit' class='replay-image' name='replay' value='replay' id='replay'>
+                </form>
+                <form action='index.php' method='GET'>
+                  <input type='submit' class='next-image' name='next' value='next' id='next'>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      -->
+        <?php
+        }
+        ?>
+
+        <?php
+        if($result === "gagne"){
+          ?>
+          <div class='container-message-screen'>
+            <div class='container-message-container'>
+            <div class='container-message'>
+            <div class='menu-fin-partie'>
+              <div class ='end-screen-victory'>
+              </div>
+              <div class ='container-circle-picker'>
+                <form action='index.php' method='GET'>
+                  <input type='submit' class='exit-image' name='logout' value='logout' id='logout'>
+                </form>
+                <form action='index.php' method='GET'>
+                  <input type='submit' class='replay-image' name='replay' value='replay' id='replay'>
+                </form>
+                <form action='index.php' method='GET'>
+                  <input type='submit' class='next-image' name='next' value='next' id='next'>
+                </form>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <?php
+        }
+        ?>
+
         <div class="header">
+          <div class="replay-container">
+            <form action='index.php' method='GET'>
+              <input type='submit' class="replay-image" name='replay' value='replay' id='replayHeader'>
+            </form>
+          </div>
           <div class="title">
             <div class=title-logo>
             </div>

@@ -4,7 +4,7 @@
 }
 
 body{
-  font-family: 'Arial', serif;
+  font-family: 'Century Gothic', serif;
   font-size: 12px;
 }
 
@@ -32,8 +32,8 @@ body{
   flex-direction: column;
   overflow: hidden;
   border-radius: 3px;
-  height: 500px;
-  width: 400px;
+  height: 70vh;
+  width: 70vh;
   background: rgba(255,255,255,0.85);
 }
 
@@ -50,7 +50,41 @@ body{
 	padding:30px;
   height: 45%;
   width: auto;
-
+  border-bottom: dashed 1px #777;
+}
+.container-text{
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  display: box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: none;
+  padding: 20px;
+  font-size: 2.5vh;
+  text-transform: uppercase;
+  border-radius: 3px;
+  background: #eee;
+  border-bottom: solid 3px #aaa;
+  margin: 5px;
+}
+.container-text-title{
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  display: box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: none;
+  font-size: 2.5vh;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: solid 1px #aaa;
+  padding: 4px;
 }
 
 .container-partie{
@@ -105,6 +139,34 @@ body{
   background-size: 100% 100%;
 }
 
+.replay-container {
+  z-index: 991;
+  position: absolute;
+  width: 10vh;
+  height: 10vh;
+  background-color: #fff;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+  display: box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.replay-image{
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  position: initial;
+  width: 6vh;
+  height: 6vh;
+  background : url("../img/replay.png");
+  background-size: 100% 100%;
+}
+
 .logout-container {
 
   position: absolute;
@@ -124,7 +186,7 @@ body{
   position: initial ;
   width: 7vh;
   height: 7vh;
-  background-color: #eee;
+  background-color: #7f8c8d;
   top: 0;
   right: 0;
   bottom: 0;
@@ -134,13 +196,13 @@ body{
   justify-content: center;
   align-items: center;
   border-radius: 1000em;
-  border-bottom: solid 4px #bdc3c7;
+  border-bottom: solid 4px #555;
   transition: 0.1s;
 }
 
 .logout:active{
   transform: translateY(4px);
-  border-bottom: solid 1px #bdc3c7;
+  border-bottom: solid 1px #555;
 }
 
 .logout-logo {
@@ -155,4 +217,41 @@ body{
   background: url(../img/logout.png);
   background-size: 100% 100%;
   transition: 0.3s ;
+}
+input[type=submit] {
+  border-radius: 1000em;
+  height: 5vh;
+  width: 5vh;
+  margin: 5px;
+  background-color: #7f8c8d;
+  --color:#555;
+  box-shadow: none;
+  border:none;
+  border-bottom: solid 4px var(--color);
+  transition: 0.1s;
+  -webkit-transition: 0.1s;
+  text-indent: -999vw;
+}
+
+input[type=submit]#replayHeader{
+  position: initial ;
+  width: 7vh;
+  height: 7vh;
+  background-color: #7f8c8d;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000em;
+  border-bottom: solid 4px #555;
+  transition: 0.1s;
+}
+
+input[type=submit]#replayHeader:active{
+  transform: translateY(4px);
+  border-bottom: solid 1px #555;
 }

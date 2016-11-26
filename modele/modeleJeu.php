@@ -70,9 +70,6 @@ private $curseur;
       return $this->authorizedColumn;
     }
 
-
-// A développer
-// méthode qui permet de commencer la partie en créant une combinaison aléatoire
 public function initialisation(){
     $this->isHidden = true;
     $this->authorizedColumn = 0;
