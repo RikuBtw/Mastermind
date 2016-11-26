@@ -3,7 +3,7 @@
 class ModeleAuthentification{
 
   function verificationPseudo($pseudo, $password){
-    try
+    try{
       $connexion=new PDO('mysql:host=localhost;dbname=E154817E','E154817E','E154817E');
       $stmt = $connexion->prepare("SELECT pseudo, motDePasse from joueurs where joueurs.pseudo=?");
       $stmt->bindParam(1, $pseudo);
