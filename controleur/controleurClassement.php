@@ -10,11 +10,12 @@ private $modeleBD;
   function __construct(){
 		$this->modeleBD = new modeleBD();
     $this->modeleBD->recuperation5Premiers();
-    $this->vueClassement = new VueClassement($this->modeleBD->getListeClassement());
+    $this->vueClassement = new VueClassement($this->modeleBD->getListeClassement(), $this->modeleBD->recupererMoyenneCoups(), $this->modeleBD->recupererMoyenneGagnee());
   }
 
   function demandeAfficheClassement(){
     $this->vueClassement->afficheClassement();
   }
+
 }
 ?>

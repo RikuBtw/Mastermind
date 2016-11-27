@@ -2,9 +2,13 @@
 class VueClassement{
 
   private $classementListe;
+  private $moyenneCoups;
+  private $moyenneGagnee;
 
-  function __construct($classementListe){
+  function __construct($classementListe, $moyenneCoups, $moyenneGagnee){
     $this->classementListe = $classementListe;
+    $this->moyenneCoups = $moyenneCoups;
+    $this->moyenneGagnee = $moyenneGagnee;
   }
 
   function afficheClassement(){
@@ -82,7 +86,22 @@ class VueClassement{
               </div>
 
               <div class = "container-partie">
-                blabla
+                <?php
+                echo "Cher ".$_SESSION['user_token'].", ";
+                if($_SESSION['etatPartie'] == 1){
+                  echo " félicitations pour votre victoire !";
+                  echo "</br>";
+                  echo "</br>";
+                }else if($_SESSION['etatPartie'] == 0){
+                  echo " vous réussirez mieux la prochaine fois !";
+                  echo "</br>";
+                  echo "</br>";
+                }
+                echo "Votre nombre de coups joués à cette partie s'élève à ".$_SESSION['nbCoups'].".";
+                echo "</br>";
+                echo "Votre moyenne de coups est de ".$this->moyenneCoups.", et vous avez un taux de victoire de ".$this->moyenneGagnee."%."
+
+                ?>
               </div>
             </div>
           </div>

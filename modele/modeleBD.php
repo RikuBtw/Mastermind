@@ -3,7 +3,6 @@ class ModeleBD{
 
 private $listeClassement;
 private $curseur;
-private $moyenneCoups;
 
   // Constructeur de la classe
   function __construct(){
@@ -15,7 +14,6 @@ private $moyenneCoups;
       	array("","Vide",""),
       );
       $this->curseur = 0;
-      $this->moyenneCoups=0;
   }
 
   function getListeClassement(){
@@ -42,30 +40,45 @@ private $moyenneCoups;
       print($e->getMessage());
     }
     foreach($tabResult as $row){
-        $moyenneGagnee = $this->recupererMoyenneGagnee($row['pseudo']);
-        $this->insererPartie($row['pseudo'], $row['nombreCoups'], "1"+$moyenneGagnee);
+      $requeteMoyenneVictoire = "SELECT COUNT(partieGagnee) FROM parties where partieGagnee = '1' and parties.pseudo = ?";
+      $requeteMoyenneTotal  = "SELECT COUNT(partieGagnee) FROM parties where parties.pseudo = ?";
+      $stmt2 = $connexion->prepare($requeteMoyenneVictoire);
+      $stmt3 = $connexion->prepare($requeteMoyenneTotal);
+      $stmt2->bindParam(1, $row['pseudo']);
+      $stmt3->bindParam(1, $row['pseudo']);
+      $victoire = $stmt2->execute();
+      $total = $stmt3->execute();
+      $moyenneGagnee = $victoire/$total;
+
+        $this->insererPartie($row['pseudo'], $row['nombreCoups'], $moyenneGagnee);
     }
   }
 
   function recupererMoyenneCoups(){
     try{
       $connexion=new PDO('mysql:host=localhost;dbname=E154817E','E154817E','E154817E');
-      $requete = "SELECT AVG(nbCoups) FROM parties where parties.joueur = ?";
+      $requete = "SELECT AVG(nombreCoups) FROM parties where parties.pseudo = ?";
       $stmt = $connexion->prepare($requete);
       $stmt->bindParam(1, $_SESSION['user_token']);
-      $this->moyenneCoups = $stmt->execute();
+      return $stmt->execute();
     }catch (PDOException $e){
       print($e->getMessage());
     }
   }
 
-  function recupererMoyenneGagnee($joueur){
+  function recupererMoyenneGagnee(){
     try{
       $connexion=new PDO('mysql:host=localhost;dbname=E154817E','E154817E','E154817E');
-      $requete = "SELECT AVG(partieGagnee) FROM parties where parties.joueur = ?";
-      $stmt = $connexion->prepare($requete);
-      $stmt->bindParam(1, $joueur);
-      return ($stmt->execute());
+      $requete1 = "SELECT COUNT(partieGagnee) FROM parties where partieGagnee = '1' and parties.pseudo = ?";
+      $requete2 = "SELECT COUNT(partieGagnee) FROM parties where parties.pseudo = ?";
+      $stmt1 = $connexion->prepare($requete1);
+      $stmt2 = $connexion->prepare($requete2);
+      $stmt1->bindParam(1, $_SESSION['user_token']);
+      $stmt2->bindParam(1, $_SESSION['user_token']);
+      $victoire = $stmt1->execute();
+      $total = $stmt2->execute();
+      return $victoire/$total;
+
     }catch (PDOException $e){
       print($e->getMessage());
     }

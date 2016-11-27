@@ -21,7 +21,6 @@ class ControleurJeu{
 			$this->modeleJeu->initialisation();
 		}
 		$this->vueJeu=new VueJeu($this->modeleJeu);
-		$this->vueClassement = new vueClassement($this->modeleJeu);
 		$this->modeleBD = new ModeleBD();
 		}
 
