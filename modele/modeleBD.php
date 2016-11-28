@@ -7,11 +7,11 @@ private $curseur;
   // Constructeur de la classe
   function __construct(){
       $this->listeClassement = array(
-      	array("","Vide",""),
-      	array("","Vide",""),
-      	array("","Vide",""),
-      	array("","Vide",""),
-      	array("","Vide",""),
+      	array("-","-","-"),
+      	array("-","-","-"),
+      	array("-","-","-"),
+      	array("-","-","-"),
+      	array("-","-","-"),
       );
       $this->curseur = 0;
   }
@@ -48,7 +48,9 @@ private $curseur;
       $stmt3->bindParam(1, $row['pseudo']);
       $victoire = $stmt2->execute();
       $total = $stmt3->execute();
-      $moyenneGagnee = $victoire/$total;
+      $victoire = $stmt2->fetch();
+      $total = $stmt3->fetch();
+      $moyenneGagnee = round(($victoire[0]/$total[0])*100);
 
         $this->insererPartie($row['pseudo'], $row['nombreCoups'], $moyenneGagnee);
     }
@@ -60,7 +62,9 @@ private $curseur;
       $requete = "SELECT AVG(nombreCoups) FROM parties where parties.pseudo = ?";
       $stmt = $connexion->prepare($requete);
       $stmt->bindParam(1, $_SESSION['user_token']);
-      return $stmt->execute();
+      $stmt->execute();
+      $moyenne =  $stmt->fetch();
+      return round($moyenne[0]);
     }catch (PDOException $e){
       print($e->getMessage());
     }
@@ -75,9 +79,11 @@ private $curseur;
       $stmt2 = $connexion->prepare($requete2);
       $stmt1->bindParam(1, $_SESSION['user_token']);
       $stmt2->bindParam(1, $_SESSION['user_token']);
-      $victoire = $stmt1->execute();
-      $total = $stmt2->execute();
-      return $victoire/$total;
+      $stmt1->execute();
+      $stmt2->execute();
+      $victoire = $stmt1->fetch();
+      $total = $stmt2->fetch();
+      return round((($victoire[0])/($total[0]))*100);
 
     }catch (PDOException $e){
       print($e->getMessage());

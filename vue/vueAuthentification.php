@@ -37,7 +37,7 @@ function afficheAuthentification(){
 						<input type="password" id="password" name="password" placeholder="Password">
 					</div>
           <div class = "input-button">
-						<input type="submit" style="cursor:pointer" value = "Valider">
+						<input type="submit" style="cursor:pointer" name="valider" value = "Valider">
 
 
           </div>

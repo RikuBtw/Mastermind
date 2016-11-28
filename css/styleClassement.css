@@ -64,11 +64,11 @@ body{
   background: none;
   padding: 2vh;
   font-size: 2.5vh;
-  text-transform: uppercase;
   border-radius: 3px;
   background: #eee;
   border-bottom: solid 3px #aaa;
-  margin: 5px;
+  margin: 2vh;
+
 }
 .container-text-title{
   -webkit-flex-direction: column;
@@ -80,27 +80,24 @@ body{
   align-items: center;
   text-align: center;
   background: none;
-  font-size: 2.5vh;
+  font-size: 1.6vh;
   text-transform: uppercase;
   font-weight: bold;
   border-bottom: solid 1px #aaa;
-  padding: 4px;
+  padding: 1vh;
 }
 
 .container-partie{
   display: box;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
   background: none;
-	padding:3vh;
+	padding:5vh;
   height: 55%;
   width: auto;
-  font-size: 2.5vh;
+  font-size: 2.7vh;
 }
 
 .header{

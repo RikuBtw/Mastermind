@@ -29,7 +29,7 @@ class VueClassement{
           <div class="header">
             <div class="title">
               <div class="replay-container">
-                <form action='index.php' method='GET'>
+                <form action='index.php' method='POST'>
                   <input type='submit' class="replay-image" name='replay' value='replay' id='replayHeader'>
                 </form>
               </div>

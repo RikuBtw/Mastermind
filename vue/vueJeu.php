@@ -19,6 +19,7 @@ class VueJeu{
       $this->authorizedColumn = $modeleJeu->getAuthorizedColumn();
   }
 
+
   function afficheJeu($result){
     header("Content-type: text/html; charset=utf-8");
     ?>
@@ -43,13 +44,13 @@ class VueJeu{
               <div class ='end-screen-defeat'>
               </div>
               <div class ='container-circle-picker'>
-                <form action='index.php' method='GET'>
+                <form action='index.php' method='POST'>
                   <input type='submit' class='exit-image' name='logout' value='logout' id='logout'>
                 </form>
-                <form action='index.php' method='GET'>
+                <form action='index.php' method='POST'>
                   <input type='submit' class='replay-image' name='replay' value='replay' id='replay'>
                 </form>
-                <form action='index.php' method='GET'>
+                <form action='index.php' method='POST'>
                   <input type='submit' class='next-image' name='next' value='next' id='next'>
                 </form>
               </div>
@@ -70,13 +71,13 @@ class VueJeu{
               <div class ='end-screen-victory'>
               </div>
               <div class ='container-circle-picker'>
-                <form action='index.php' method='GET'>
+                <form action='index.php' method='POST'>
                   <input type='submit' class='exit-image' name='logout' value='logout' id='logout'>
                 </form>
-                <form action='index.php' method='GET'>
+                <form action='index.php' method='POST'>
                   <input type='submit' class='replay-image' name='replay' value='replay' id='replay'>
                 </form>
-                <form action='index.php' method='GET'>
+                <form action='index.php' method='POST'>
                   <input type='submit' class='next-image' name='next' value='next' id='next'>
                 </form>
               </div>
@@ -90,7 +91,7 @@ class VueJeu{
 
         <div class="header">
           <div class="replay-container">
-            <form action='index.php' method='GET'>
+            <form action='index.php' method='POST'>
               <input type='submit' class="replay-image" name='replay' value='replay' id='replayHeader'>
             </form>
           </div>
@@ -157,7 +158,7 @@ class VueJeu{
           <div class="container-center">
             <div class="container-row">
               <div class ="container-circle-picker">
-                <form action='index.php' method='GET'>
+                <form action='index.php' method='POST'>
                   <input type='submit' class="backward-image" name='backward' value='backward' id='backward'>
                 </form>
               </div>
@@ -165,14 +166,14 @@ class VueJeu{
               <?php
               for($i = 0; $i<8; $i++){
                 echo "<div class = 'container-circle-picker'>";
-                echo "<form action='index.php' method='GET'>";
+                echo "<form action='index.php' method='POST'>";
                 echo "<input type='submit' name='circle' value='".$this->colorPicker[$i]."' id='".$this->colorPicker[$i]."'>\n";
                 echo "</form>";
                 echo "</div>";
               }
               ?>
               <div class ="container-circle-picker">
-                <form action='index.php' method='GET'>
+                <form action='index.php' method='POST'>
                   <input type='submit' class="check-image" name='check' value='check' id='check'>
                 </form>
               </div>
