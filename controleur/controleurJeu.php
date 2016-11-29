@@ -30,9 +30,12 @@ class ControleurJeu{
 	}
 
 	function replay(){
-		$_SESSION['modele']=new ModeleJeu();
-		$this->modeleJeu = $_SESSION['modele'];
+		unset($_SESSION['modeleJeu']);
+		unset($_SESSION['etatPartie']);
+		$_SESSION['modeleJeu']=new ModeleJeu();
+		$this->modeleJeu = $_SESSION['modeleJeu'];
 		$this->modeleJeu->initialisation();
+		$this->vueJeu=new VueJeu($this->modeleJeu);
 	}
 
 	function demandeAfficheJeu($result){

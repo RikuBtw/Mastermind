@@ -22,15 +22,6 @@ class Routeur {
   // Traite une requête entrante
 	public function routerRequete() {
 
-
-    if(!empty($_POST['circle'])&& isset($_SESSION['user_token'])){
-      $this->ctrlJeu->demandeAjoutPion($_POST['circle']);
-      $this->ctrlJeu->demandeAfficheJeu(0);
-    }else
-    if(!empty($_POST['backward'])&& isset($_SESSION['user_token'])){
-      $this->ctrlJeu->demandeSupprimerPion();
-      $this->ctrlJeu->demandeAfficheJeu(0);
-    }else
     if(!empty($_POST['check'])&& isset($_SESSION['user_token'])){
 
       $tempVerification = $this->ctrlJeu->demandeVerification();
@@ -43,20 +34,33 @@ class Routeur {
         $this->ctrlJeu->demandeAfficheJeu(0);
       }
     }else
-      if(!empty($_POST['next'])&& isset($_SESSION['user_token'])){
-        $this->ctrlClassement->demandeAfficheClassement();
+    if(!empty($_POST['next'])&& isset($_SESSION['user_token'])&&isset($_SESSION['etatPartie'])){
+      $this->ctrlClassement->demandeAfficheClassement();
     }else
-      if(!empty($_POST['replay'])&& isset($_SESSION['user_token'])){
-        $this->ctrlJeu->replay();
-        $this->ctrlJeu->demandeAfficheJeu(0);
+    if(!empty($_POST['replay'])&& isset($_SESSION['user_token'])){
+      $this->ctrlJeu->replay();
+      $this->ctrlJeu->demandeAfficheJeu(0);
+    }else
+    if(isset($_SESSION['etatPartie'])){
+      $this->ctrlClassement->demandeAfficheClassement();
+    }else
+    if(!empty($_POST['circle'])&& isset($_SESSION['user_token'])){
+      $this->ctrlJeu->demandeAjoutPion($_POST['circle']);
+      $this->ctrlJeu->demandeAfficheJeu(0);
+    }else
+    if(!empty($_POST['backward'])&& isset($_SESSION['user_token'])){
+      $this->ctrlJeu->demandeSupprimerPion();
+      $this->ctrlJeu->demandeAfficheJeu(0);
+    }else
+
+
+    if(isset($_SESSION['user_token'])){
+      $this->ctrlJeu->demandeAfficheJeu(0);
     }else
     if(!empty($_POST['valider'])){
       if($this->ctrlAuthentification->demandeVerificationPseudo($_POST['pseudo'], $_POST['password'])){
-        if(empty($_SESSION['user_token'])){
-          $this->ctrlAuthentification->demandeAfficheAuthentification();
-        }else{
-          $this->ctrlJeu->demandeAfficheJeu(0);
-        }
+        $this->ctrlJeu->replay();
+        $this->ctrlJeu->demandeAfficheJeu(0);
       }else{
         $this->ctrlErreur->demandeAfficheErreur();
       }
