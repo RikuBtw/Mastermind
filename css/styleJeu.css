@@ -643,7 +643,74 @@ input[type=submit]#replayHeader:active{
   border-bottom: solid 1px #555;
 }
 
-input[type=submit]#logout{
+input[type=submit]#logoutW{
+  margin: 4px;
+  height: 10vh;
+  width: 10vh;
+  box-shadow: none;
+  border-bottom: solid 4px #27ae60;
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s;
+	-webkit-transition: 0.1s;
+  text-indent: -999vw;
+  background-color: #2ecc71;
+}
+input[type=submit]#logoutW:active{
+  transform: translateY(4px);
+  border-bottom: solid 1px #27ae60;
+}
+input[type=submit]#replayW{
+  margin: 4px;
+  height: 10vh;
+  width: 10vh;
+  box-shadow: none;
+  border-bottom: solid 4px #27ae60;
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s;
+	-webkit-transition: 0.1s;
+  text-indent: -999vw;
+  background-color: #2ecc71;
+}
+input[type=submit]#replayW:active{
+  transform: translateY(4px);
+  border-bottom: solid 1px #27ae60;
+}
+input[type=submit]#nextW{
+  margin: 4px;
+  height: 10vh;
+  width: 10vh;
+  box-shadow: none;
+  border-bottom: solid 4px #27ae60;
+  display: box;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s;
+	-webkit-transition: 0.1s;
+  text-indent: -999vw;
+  background-color: #2ecc71;
+}
+input[type=submit]#nextW:active{
+  transform: translateY(4px);
+  border-bottom: solid 1px #27ae60;
+}
+
+input[type=submit]#logoutD{
   margin: 4px;
   height: 10vh;
   width: 10vh;
@@ -661,11 +728,11 @@ input[type=submit]#logout{
   text-indent: -999vw;
   background-color: #e67e22;
 }
-input[type=submit]#logout:active{
+input[type=submit]#logoutD:active{
   transform: translateY(4px);
   border-bottom: solid 1px #d35400;
 }
-input[type=submit]#replay{
+input[type=submit]#replayD{
   margin: 4px;
   height: 10vh;
   width: 10vh;
@@ -683,11 +750,11 @@ input[type=submit]#replay{
   text-indent: -999vw;
   background-color: #e67e22;
 }
-input[type=submit]#replay:active{
+input[type=submit]#replayD:active{
   transform: translateY(4px);
   border-bottom: solid 1px #d35400;
 }
-input[type=submit]#next{
+input[type=submit]#nextD{
   margin: 4px;
   height: 10vh;
   width: 10vh;
@@ -705,7 +772,7 @@ input[type=submit]#next{
   text-indent: -999vw;
   background-color: #e67e22;
 }
-input[type=submit]#next:active{
+input[type=submit]#nextD:active{
   transform: translateY(4px);
   border-bottom: solid 1px #d35400;
 }

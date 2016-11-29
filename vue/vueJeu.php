@@ -45,13 +45,13 @@ class VueJeu{
               </div>
               <div class ='container-circle-picker'>
                 <form action='index.php' method='POST'>
-                  <input type='submit' class='exit-image' name='logout' value='logout' id='logout'>
+                  <input type='submit' class='exit-image' name='logout' value='logout' id='logoutD'>
                 </form>
                 <form action='index.php' method='POST'>
-                  <input type='submit' class='replay-image' name='replay' value='replay' id='replay'>
+                  <input type='submit' class='replay-image' name='replay' value='replay' id='replayD'>
                 </form>
                 <form action='index.php' method='POST'>
-                  <input type='submit' class='next-image' name='next' value='next' id='next'>
+                  <input type='submit' class='next-image' name='next' value='next' id='nextD'>
                 </form>
               </div>
             </div>
@@ -72,13 +72,13 @@ class VueJeu{
               </div>
               <div class ='container-circle-picker'>
                 <form action='index.php' method='POST'>
-                  <input type='submit' class='exit-image' name='logout' value='logout' id='logout'>
+                  <input type='submit' class='exit-image' name='logout' value='logout' id='logoutW'>
                 </form>
                 <form action='index.php' method='POST'>
-                  <input type='submit' class='replay-image' name='replay' value='replay' id='replay'>
+                  <input type='submit' class='replay-image' name='replay' value='replay' id='replayW'>
                 </form>
                 <form action='index.php' method='POST'>
-                  <input type='submit' class='next-image' name='next' value='next' id='next'>
+                  <input type='submit' class='next-image' name='next' value='next' id='nextW'>
                 </form>
               </div>
             </div>
