@@ -1,15 +1,11 @@
 <?php
-
 class VueJeu{
-
   private $isHidden;
   private $colorHidden;
   private $colorShowed;
   private $colorCorrect;
   private $colorPicker;
   private $authorizedColumn;
-
-
   function __construct($modeleJeu){
       $this->isHidden = $modeleJeu->getIsHidden();
       $this->colorHidden = $modeleJeu->getColorHidden();
@@ -18,8 +14,6 @@ class VueJeu{
       $this->colorPicker = $modeleJeu->getColorPicker();
       $this->authorizedColumn = $modeleJeu->getAuthorizedColumn();
   }
-
-
   function afficheJeu($result){
     header("Content-type: text/html; charset=utf-8");
     ?>

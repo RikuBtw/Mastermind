@@ -50,7 +50,9 @@ private $curseur;
       $total = $stmt3->execute();
       $victoire = $stmt2->fetch();
       $total = $stmt3->fetch();
-      $moyenneGagnee = round(($victoire[0]/$total[0])*100);
+      if($total[0] != 0){
+        $moyenneGagnee = round(($victoire[0]/$total[0])*100);
+      }
 
         $this->insererPartie($row['pseudo'], $row['nombreCoups'], $moyenneGagnee);
     }
@@ -64,7 +66,9 @@ private $curseur;
       $stmt->bindParam(1, $_SESSION['user_token']);
       $stmt->execute();
       $moyenne =  $stmt->fetch();
-      return round($moyenne[0]);
+      if($moyenne[0] != 0){
+        return round($moyenne[0]);
+      }
     }catch (PDOException $e){
       print($e->getMessage());
     }
@@ -83,7 +87,10 @@ private $curseur;
       $stmt2->execute();
       $victoire = $stmt1->fetch();
       $total = $stmt2->fetch();
-      return round((($victoire[0])/($total[0]))*100);
+      if($total[0] != 0){
+        return round((($victoire[0])/($total[0]))*100);
+      }
+
 
     }catch (PDOException $e){
       print($e->getMessage());

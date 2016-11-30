@@ -1,25 +1,21 @@
 <?php
 class ModeleClassement{
-
 private $listeClassement;
 private $curseur;
-
   // Constructeur de la classe
   function __construct(){
       $this->listeClassement = array(
-      	array("","Vide",""),
-      	array("","Vide",""),
-      	array("","Vide",""),
-      	array("","Vide",""),
-      	array("","Vide",""),
+      	array("-","-","-"),
+      	array("-","-","-"),
+      	array("-","-","-"),
+      	array("-","-","-"),
+      	array("-","-","-"),
       );
       $this->curseur = 0;
   }
-
   function getListeClassement(){
     return $this->listeClassement;
   }
-
   // Méthode permettant d'insérer une partie dans la liste des scores
   function insererPartie($pseudo, $nbCoups, $id){
      $this->listeClassement[$this->curseur][0] = $pseudo;
@@ -27,7 +23,6 @@ private $curseur;
      $this->listeClassement[$this->curseur][2] = $id;
      $this->curseur++;
   }
-
   //Affichage des 5 meilleurs scores de la base de données
   function recuperation5Premiers(){
     try{
@@ -36,16 +31,12 @@ private $curseur;
       $stmt = $connexion->prepare($requete);
       $stmt->execute();
       $tabResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
       foreach ($tabResult as $row) {
             $this->listeClassement->insererPartie($row['pseudo'], $row['nombreCoups'], $row['id']);
-          } 
+          }
     }catch (PDOException $e){
       print($e->getMessage());
     }
-
-
   }
 }
-
 ?>

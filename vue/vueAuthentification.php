@@ -38,10 +38,12 @@ function afficheAuthentification(){
 					</div>
           <div class = "input-button">
 						<input type="submit" style="cursor:pointer" name="valider" value = "Valider">
-
-
           </div>
+          <form method="POST" action="index.php">
+            <input type="submit" class = "linkButton" style="cursor:pointer" name="inscription" value = "Pas de compte? Inscrivez vous">
+          </form>
 				</form>
+
 			</div>
 		</div>
       </div>
