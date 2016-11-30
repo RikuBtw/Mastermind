@@ -1,17 +1,13 @@
 <?php
-
 require_once __DIR__."/../vue/vueJeu.php";
 require_once __DIR__."/../vue/vueClassement.php";
 require_once __DIR__."/../modele/modeleJeu.php";
 require_once __DIR__."/../modele/modeleBD.php";
-
 class ControleurJeu{
-
 	private $vueJeu;
 	private $vueClassement;
 	private $modeleJeu;
 	private $modeleBD;
-
 	function __construct(){
 		if(isset($_SESSION['modeleJeu'])){
 			$this->modeleJeu = $_SESSION['modeleJeu'];
@@ -23,12 +19,9 @@ class ControleurJeu{
 		$this->vueJeu=new VueJeu($this->modeleJeu);
 		$this->modeleBD = new ModeleBD();
 		}
-
-
 	function refreshBD(){
 		$this->modeleBD = new ModeleBD();
 	}
-
 	function replay(){
 		unset($_SESSION['modeleJeu']);
 		unset($_SESSION['etatPartie']);
@@ -37,19 +30,15 @@ class ControleurJeu{
 		$this->modeleJeu->initialisation();
 		$this->vueJeu=new VueJeu($this->modeleJeu);
 	}
-
 	function demandeAfficheJeu($result){
 		 (new VueJeu($this->modeleJeu))->affichejeu($result);
 	}
-
 	function demandeAjoutPion($couleur) {
 		$this->modeleJeu->ajouterPion($couleur);
   }
-
 	function demandeSupprimerPion(){
 		$this->modeleJeu->supprimerPion();
 	}
-
 	function demandeVerification(){
 		if ($this->modeleJeu->estPlein()){
 			$this->modeleJeu->verification();

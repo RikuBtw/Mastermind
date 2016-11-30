@@ -9,8 +9,12 @@ private $vueErreur;
     $this->vueErreur = new vueErreur();
   }
 
-  function demandeAfficheErreur(){
+  function demandeAfficheErreurAuthentification(){
     $this->vueErreur->afficheErreurAuthentification();
+  }
+
+  function demandeAfficheErreurInscription($id_erreur){
+    $this->vueErreur->afficheErreurInscription($id_erreur);
   }
 }
 ?>
