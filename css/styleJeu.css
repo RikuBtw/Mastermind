@@ -193,7 +193,7 @@ body{
   --color:#27ae60;
 }
 .bleu{
-  background-color: #3498db;
+  background-color: #0e81cd;
   --color:#1870a8;
 }
 .orange{
@@ -205,12 +205,12 @@ body{
   --color:#bdc3c7;
 }
 .violet{
-  background-color: #9b59b6;
-  --color:#7d33bc;
+  background-color: #b500ff;
+  --color:#5c1599;
 }
 .fushia{
-  background-color: #ff66ff;
-  --color:#983c98;
+  background-color: #ff82ff;
+  --color:#a162a1;
 }
 .hidden{
   background-color: #abb7b7;
