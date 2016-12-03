@@ -514,7 +514,7 @@ input[type=submit]#vert{
   --color:#27ae60;
 }
 input[type=submit]#bleu{
-  background-color: #3498db;
+  background-color: #0e81cd;
   --color:#1870a8;
 }
 input[type=submit]#orange{
@@ -526,12 +526,12 @@ input[type=submit]#blanc{
   --color:#bdc3c7;
 }
 input[type=submit]#violet{
-  background-color: #9b59b6;
-  --color:#7d33bc;
+  background-color: #b500ff;
+  --color:#5c1599;
 }
 input[type=submit]#fushia{
-  background-color: #ff66ff;
-  --color:#983c98;
+  background-color: #ff82ff;
+  --color:#a162a1;
 }
 
 input[type=submit]#check{
